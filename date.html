@@ -1,0 +1,24 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="myapp" >
+<head>
+<title>日期控件</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="text/javascript" src="js/laydate/laydate.js"></script>
+</head>
+<body>
+<inputdate></inputdate>
+{{hello}}
+</body>
+<script src="http://www.w3cschool.cc/try/angularjs/1.2.5/angular.min.js"></script>
+<script>
+var appModule = angular.module('myapp', []);
+appModule.directive('inputdate', function() {
+return {
+restrict: 'E',
+template: "<input onclick='laydate()' ng-bind='hello' type='text' name='aaa' />", 
+replace: true
+};
+});
+</script>
+
+</html>

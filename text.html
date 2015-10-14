@@ -1,0 +1,128 @@
+<html>
+<head>
+<title>alert</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="text/javascript"  >
+
+
+
+//创建透明div
+function getTMDiv(id)
+{
+    var hiddenDivWidth=document.body.clientWidth;
+	var hiddenDivHeight=document.body.clientHeight;
+    //alert(document.body.clientWidth);
+	//alert(document.body.clientHeight);
+	var hiddenDivElement=document.createElement("div");
+	hiddenDivElement.setAttribute("style","width:"+hiddenDivWidth+"px;height:"+hiddenDivHeight+"px;background-color:#C8C8C8;position:absolute;top:0px;left:0px;filter:alpha(Opacity=80);-moz-opacity:0.5;opacity:0.5;");
+	hiddenDivElement.setAttribute("id",id);
+	return hiddenDivElement;
+}
+
+
+//取得Windows实例
+function getWindow(width,height,title)
+{
+    
+	var id="rondomfasdfasdfasdfadsfaid";
+	var tmid=id+"_tm";
+    var tmdiv=getTMDiv(tmid);
+
+    var hiddenDivWidth=document.body.clientWidth;
+	var hiddenDivHeight=document.body.clientHeight;
+	var left=hiddenDivWidth/2-(width+16)/2;
+	var top=hiddenDivHeight/2-(40+15+height+15+30+15)/2
+	//alert("left:"+left+",top:"+top);
+    var tempWindow=document.createElement("div");
+	tempWindow.setAttribute("style","position:absolute;top:"+top+"px;left:"+left+"px;border:2px solid #0AA4E7;background-color:#ffffff;-webkit-border-radius:8px;-moz-border-radius:8px;border-radius:8px;-webkit-box-shadow:#666 0px 0px 10px;-moz-box-shadow:$666 0px 0px 10px;box-shadow:#666 0px 0px 10px;");
+	tempWindow.setAttribute("id",id);
+	
+	//标题区域
+	var titleDiv=document.createElement("div");
+	titleDiv.setAttribute("style","height:40px;line-height:40px;background-color:#0AA4E7;padding-left:20px;font-family:'微软雅黑,Arial,宋体';font-weight:bold;color:#ffffff;font-size:14px;")
+	var titleText=document.createTextNode(title);
+	titleDiv.appendChild(titleText);
+	tempWindow.appendChild(titleDiv);
+	tempWindow.appendChild(getSpaceDiv_Y(15));
+	//正文区域
+	
+	var bodydiv=document.createElement("div");
+	bodydiv.setAttribute("style","height:"+height+"px;width:"+width+"px;margin-right:8px;margin-left:8px;display:block;");
+	
+	var iframe=document.createElement("iframe");
+	iframe.setAttribute("src","joincompany.html");
+	iframe.setAttribute("width",width+"px");
+	iframe.setAttribute("height",height+"px");
+	iframe.setAttribute("border","0px");
+	iframe.setAttribute("style","border:0px;");
+	
+	bodydiv.appendChild(iframe);
+	
+	tempWindow.appendChild(bodydiv);
+	
+	//按钮区域
+	tempWindow.appendChild(getSpaceDiv_Y(15));
+	var footerdiv=document.createElement("div");
+	footerdiv.setAttribute("style","margin-right:20px;margin-left:20px;display:block;");
+	footerdiv.appendChild(getTextButton('确定'));
+	footerdiv.appendChild(getSpaceDiv_X(10));
+	var cancelButton=getTextButton('取消');
+	cancelButton.onclick=function(){
+	    var id=this.parentNode.parentNode.getAttribute("id");
+		//alert(id);
+		document.body.removeChild(document.getElementById(id+"_tm"));
+	    document.body.removeChild(document.getElementById(id));
+	};
+	footerdiv.appendChild(cancelButton);
+	tempWindow.appendChild(footerdiv);
+	tempWindow.appendChild(getSpaceDiv_Y(15));
+	
+		
+	//把生成的div添加到网页中
+	var tmdiv=getTMDiv(tmid);
+	document.body.appendChild(tmdiv);
+	
+	document.body.appendChild(tempWindow);
+
+}
+
+//得到文字类型的Button
+function getTextButton(title)
+{
+    var buttonDiv=document.createElement("div"); 
+	buttonDiv.setAttribute("style","display:inline-block;border:2px solid #0AA4E7;height:30px;line-height:30px;padding-left:10px;padding-right:10px;color:#0AA4E7;font-size:12px;font-weight:bold;font-family:微软雅黑,Arial;cursor:pointer;-webkit-border-radius:8px;-moz-border-radius:8px;border-radius:8px;")
+	var textNote=document.createTextNode(title);
+	buttonDiv.appendChild(textNote);
+	buttonDiv.onmouseover=function(){
+	    this.style.backgroundColor="#0AA4E7";
+		this.style.color="#ffffff";
+	};
+	buttonDiv.onmouseout=function(){
+	    this.style.backgroundColor="#ffffff";
+		this.style.color="#0AA4E7";
+	};
+	return buttonDiv;
+}
+
+//返回指定空隙高度的div
+function getSpaceDiv_Y(height)
+{
+    var div=document.createElement("div"); 
+	div.setAttribute("style","display:block;font-size:0px;height:"+height+"px");
+	return div;
+}
+
+//返回指定空隙宽度的div
+function getSpaceDiv_X(width)
+{
+    var div=document.createElement("div"); 
+	div.setAttribute("style","display:inline-block;font-size:0px;width:"+width+"px");
+	return div;
+}
+
+</script>
+</head>
+<body>
+<input type=button value=button onclick="getWindow(800,500,'请选择职员');" />
+</body>
+</html>

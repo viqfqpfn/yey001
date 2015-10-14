@@ -1,0 +1,333 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>员工入职</title>
+
+        <link href="css/style.css" rel="stylesheet" type="text/css" />
+        <link href="css/select.css" rel="stylesheet" type="text/css" />
+		<script type="text/javascript" src="js/select-ui.min.js"></script>
+		<script type="text/javascript" src="editor/kindeditor.js"></script>
+        <script type="text/javascript" src="js/laydate/laydate.js"></script>
+		
+        <script type="text/javascript">
+            KE.show({
+                id: 'content7',
+                cssPath: './index.css'
+            });
+        </script>
+
+        <script type="text/javascript">
+            $(document).ready(function (e) {
+                $(".select1").uedSelect({
+                    width: 345
+                });
+                $(".select2").uedSelect({
+                    width: 167
+                });
+                $(".select3").uedSelect({
+                    width: 100
+                });
+            });
+        </script>
+    </head>
+
+    <body ng-app ng-controller="itabsController">
+
+        <div class="place">
+            <span>位置：</span>
+            <ul class="placeul">
+                <li><a href="#">首页</a></li>
+                <li><a href="#">人力资源</a></li>
+                <li><a href="#">入职</a></li>
+            </ul>
+        </div>
+
+        <div class="formbody">
+
+            <div id="usual1" class="usual"> 
+
+                <div class="formtitle"><span>基本信息</span></div>
+                <div id="tab1" class="tabson">
+                    <div class="formbody">
+                        
+                            <!-- 相片 -->
+                            <div style="width:127px;height:218px;float:left;top 0;left 0;position:absolute;display:block;">
+							    <div style="height:178px;border:1px solid #666;"></div>
+								<div style="height:20px;line-height:20px;width:100%;text-align:center;overflow:hidden" ng-bind="myname"></div>
+								<div style="height:20px;color:blue;width:100%;text-align:center;">尺寸:127*178</div>
+								<div style="width:100%;text-align:center;"><a class="ibtn"><img src="images/iadd.png" />上传相片</a></div>
+							</div>
+                            
+                            <div style="margin-left:157px;">
+                                <ul class="seachform">
+                                    <li>
+                                        <label class="indexlabel">姓名</label><input ng-model="myname" type="text" class="scinput" style="width:150px;" /></span>
+                                    </li>
+                                    <li><label>编号</label><input name="" type="text" class="scinput" style="width:100px" /></li>
+
+                                    <li><label>部门</label>  
+                                        <div class="vocation">
+                                            <select class="select3">
+                                                <option>销售部</option>
+                                                <option>财务部</option>
+                                            </select>
+                                        </div>
+                                    </li>
+
+                                    <li><label>职位</label>  
+                                        <div class="vocation">
+                                            <select class="select3">
+                                                <option>总经理</option>
+                                                <option>文员</option>
+                                            </select>
+                                        </div>
+                                    </li>
+
+                                </ul>
+
+
+                                <ul class="seachform">
+                                    <li><label class="indexlabel">专业</label><input name="" type="text" class="scinput" /></li>
+                                    <li><label >毕业学校</label><input name="" type="text" class="scinput" style="width:200px" /></li>
+                                </ul>
+
+                                <ul class="seachform">
+                                    <li><label class="indexlabel">出生日期</label><input value="2012-04-12" style="width:100px;" name="" type="text" placeholder="请输入日期" class="laydate-icon" onclick="laydate()" /></li>
+                                    <li><label >加入日期</label><input value="" style="width:100px;" name="" type="text" placeholder="请输入日期" class="laydate-icon" onclick="laydate()" /></li>
+                                </ul>
+
+                                <ul class="seachform">
+                                    <li><label class="indexlabel">性别</label>  
+                                        <div class="vocation">
+                                            <select class="select3">
+                                                <option>男</option>
+                                                <option>女</option>
+                                            </select>
+                                        </div>
+                                    </li>
+                                    <li ><label >民族</label><input name="" type="text" class="scinput" style="width:100px" /></li>
+                                    <li><label>籍贯</label><input name="" type="text" class="scinput" style="width:100px" /></li>
+                                    <li><label>学历</label>
+                                        <div class="vocation">
+                                            <select class="select3">
+                                                <option>小学</option>
+                                                <option>初中</option>
+                                                <option>高中</option>
+                                                <option>中专</option>
+                                                <option>专科</option>
+                                                <option>本科</option>
+                                                <option>硕士</option>
+                                                <option>博士及更高</option>
+                                            </select>
+                                        </div>
+                                    </li>
+
+                                </ul>
+
+
+
+
+                                <ul class="seachform">
+                                    <li><label class="indexlabel">现居住地</label><input name="" type="text" class="scinput" style="width:200px" /></li>
+                                    <li><label>户口所在地</label><input name="" type="text" class="scinput" style="width:200px" /></li>
+                                </ul>
+
+                                <ul class="seachform" >
+                                    <li><label class="indexlabel">手机</label><input name="" type="text" class="scinput" style="width:500px" /></li>
+                                </ul>
+
+                                <ul class="seachform" >
+                                    <li><label class="indexlabel">电话</label><input name="" type="text" class="scinput" style="width:500px" /></li>
+                                </ul>
+
+
+                                <ul class="seachform">
+                                    <li><label class="indexlabel">Qicq</label><input name="" type="text" class="scinput" style="width:200px" /></li>
+                                </ul>
+
+                                <ul class="seachform">
+                                    <li><label class="indexlabel">Email</label><input name="" type="text" class="scinput" style="width:200px" /></li>
+                                </ul>
+
+                                <ul class="seachform">
+                                    <li><label class="indexlabel">其它联系方式</label><input name="" type="text" class="scinput" style="width:200px" /></li>
+                                </ul>
+
+                            </div>
+
+                            <!-- 选项卡 
+							
+                            <div class="itab">
+                                <ul>
+                                    <li><a ng-click="alert('aaaa')" href="#itab1" class="selected">工作经历</a></li> 
+                                    <li><a  href="#itab2" >教育经历</a></li> 
+                                    <li><a  href="#itab3">专业特长</a></li> 
+                                    <li><a  href="#itab4">兴趣爱好</a></li> 
+                                </ul>
+                            </div> 
+							--> 
+							
+                            <div class="itab">
+                                <ul>
+								    
+                                    <li ng-repeat="itab in itabList"><a ng-click="selected(itab.id)" ng-class="{true: 'selected', false: ''}[itab.isselected]" href="javascript:void(0)" ng-bind="itab.name" ></a></li> 
+                                </ul>
+                            </div>
+							
+
+                            <!-- 工作经历 -->
+                            <div id="itab1" class="tabson" ng-show="itabList[0].isselected">
+                                <table class="tablelist">
+                                    <thead>
+                                        <tr>
+                                            <th>序号<i class="sort"><img src="images/px.gif" /></i></th>
+                                            <th>开始日期</th>
+                                            <th>结束日期</th>
+                                            <th>工作单位</th>
+                                            <th>职位</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr ng-repeat="work in itabList[0].data" ng-class="{true:'odd',false:''}[$index%2==1]">
+                                            <td ng-bind="$index+1"></td>
+                                            <td ng-bind="work.startdate"></td>
+                                            <td ng-bind="work.enddate"></td>
+                                            <td ng-bind="work.company"></td>
+                                            <td ng-bind="work.position"></td>
+                                        </tr> 
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <!-- 教育经历 -->
+                            <div id="itab2" class="tabson" ng-show="itabList[1].isselected">
+                                <table class="tablelist">
+                                    <thead>
+                                        <tr>
+                                            <th>序号<i class="sort"><img src="images/px.gif" /></i></th>
+                                            <th>开始日期</th>
+                                            <th>结束日期</th>
+                                            <th>毕业学校</th>
+                                            <th>获取学历</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>2015-11-11</td>
+                                            <td>2016-11-11</td>
+                                            <td>邵阳教育学院</td>
+                                            <td>大学本科</td>
+                                        </tr> 
+                                    </tbody>
+                                </table>
+                                <div class="ibox"><a class="ibtn"><img src="images/iadd.png" />添加一项</a><a class="ibtn"><img src="images/iadd.png" />删除一项</a></div>
+                            </div>
+
+                            <!-- 专业特长 -->
+                            <div id="itab3" class="tabson" ng-show="itabList[2].isselected">
+                                <table class="tablelist">
+                                    <thead>
+                                        <tr>
+                                            <th>序号<i class="sort"><img src="images/px.gif" /></i></th>
+                                            <th>特长名称</th>
+                                            <th>级别</th>
+                                            <th>备注</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>计算机程序开发</td>
+                                            <td>精通</td>
+                                            <td>绝对有能力开始一套完整的系统</td>
+                                        </tr> 
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <!-- 兴趣爱好 -->
+                            <div id="itab4" class="tabson" ng-show="itabList[3].isselected">
+                                <table class="tablelist">
+                                    <thead>
+                                        <tr>
+                                            <th>序号<i class="sort"><img src="images/px.gif" /></i></th>
+                                            <th>名称</th>
+                                            <th>备注</th> 
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>抽烟</td>
+                                            <td>相当厉害</td>
+                                        </tr> 
+                                    </tbody>
+                                </table>
+                            </div>
+
+
+                            <!-- 提交按钮 -->
+                            <div>
+                                <input name="" type="submit" class="btn" value="保存档案"/>
+                                <input name="" type="button" ng-click="aa()" class="btn" value="取消"/>
+                            </div>
+
+                       
+
+                    </div>
+                </div>  
+
+            </div> 
+
+
+
+        </div>
+		<script >
+		
+	function itabsController($scope) {
+	
+	$scope.itabList=[
+	{"id":1,"name":"工作经历",isselected:true,"data":[
+	{"startdate":"2001-11-12","enddate":"2003-11-11","company":"美的集团","position":"技工"},
+	{"startdate":"2004-11-12","enddate":"2006-11-11","company":"移动时代","position":"网页设计师"},
+	{"startdate":"2007-11-12","enddate":"2008-11-11","company":"互联科技","position":"网页设计师兼后台程序员"},
+	{"startdate":"2009-11-12","enddate":"2013-11-11","company":"升蓝物流","position":"程序开发员"},
+	{"startdate":"2014-11-12","enddate":"2015-11-11","company":"邦达物流","position":"系统工程师"}
+	]},
+	{"id":2,"name":"教育经历",isselected:false},
+	{"id":3,"name":"专业特长",isselected:false},
+	{"id":4,"name":"兴趣爱好",isselected:false}];
+    $scope.aa=function(){window.alert("hello");};
+	$scope.myname;
+	$scope.sex;
+	$scope.mobile;
+	$scope.joindate;
+	$scope.
+	$scope.selected=function(x){
+	    for(var i=0;i<$scope.itabList.length;i++)
+		{
+		    if($scope.itabList[i].id==x)
+			{$scope.itabList[i].isselected=true;}
+			else
+			{$scope.itabList[i].isselected=false;}
+		}
+		//for(itab in $scope.itabList)
+		//{
+		//   if(itab.id==x)
+		//       {itab.isselected=true;}
+		//	   else
+		//	   {itab.isselected=false;}
+		//}
+	};
+}
+
+		</script>
+
+<script src="http://www.w3cschool.cc/try/angularjs/1.2.5/angular.min.js"></script>
+    </body>
+    
+</html>
+
+
